@@ -1,0 +1,24 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "authors": [
+    "timothyakampa <timothyakampa@gmail.com>"
+  ],
+  "description": "websockets reach the world",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular-ui-router": "~0.2.15",
+    "angular": "~1.4.5",
+    "flat-ui": "~2.2.2",
+    "bootstrap": "~3.3.5"
+  }
+}

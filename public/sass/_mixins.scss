@@ -1,0 +1,46 @@
+$break-small: 500px;
+$break-medium: 1300px;
+$break-large: 2000px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small) and (max-width: $break-medium) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-medium) and (min-width: $break-large) { @content; }
+  }
+}
+
+@mixin animate($animation, $time) {
+  -webkit-animation: $animation $time;
+  -moz-animation: $animation $time;
+  -o-animation: $animation $time;
+}
+
+@mixin box-sizing($box-size) {
+  -webkit-box-sizing: $box-size;
+  -moz-box-sizing:    $box-size;
+  -ms-box-sizing:     $box-size;
+  -o-box-sizing:      $box-size;
+  box-sizing:         $box-size;
+}
+
+
+@mixin transition($properties) {
+  -webkit-transition: $properties;
+  -moz-transition:    $properties;
+  -ms-transition:     $properties;
+  -o-transition:      $properties;
+  transition:         $properties;
+}
+
+@mixin box-shadow($properties) {
+  -webkit-box-shadow: $properties;
+  -moz-box-shadow:    $properties;
+  -ms-box-shadow:     $properties;
+  -o-box-shadow:      $properties;
+  box-shadow:         $properties;
+}

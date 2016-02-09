@@ -1,0 +1,15 @@
+doctype html
+html(ng-app='websockets')
+  head
+    title= title
+    link(rel='stylesheet', href='/bower/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bower/flat-ui/dist/css/flat-ui.min.css')
+    link(rel='stylesheet', href='/fonts/icon-fonts/styles.css')
+    link(rel='stylesheet', href='/dist/css/app.css')
+  body
+    block content
+    script(src='/bower/jquery/dist/jquery.min.js')
+    script(src='/bower/angular/angular.min.js')
+    script(src='/bower/angular-ui-router/release/angular-ui-router.min.js')
+    script(src='/bower/bootstrap/dist/js/bootstrap.min.js')
+    block scripts
