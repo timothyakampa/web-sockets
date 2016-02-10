@@ -14,10 +14,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             all: {
-                src: ['Gruntfile.js', 'app.js', 'app/**/*.js', 'config/**/*.js'],
-                options: {
-                    ignores: ['public/bower/**']
-                }
+                src: ['Gruntfile.js', 'app.js', 'app/**/*.js', 'config/**/*.js']
             }
         },
         nodemon: {
@@ -27,39 +24,17 @@ module.exports = function (grunt) {
         },
         watch: {
             js: {
-                files: ['Gruntfile.js', 'app.js', 'app/**/*.js', 'config/**/*.js', 'public/**/*.js'],
+                files: ['Gruntfile.js', 'app.js', 'app/**/*.js', 'config/**/*.js'],
                 tasks: ['jshint'],
                 options: {
                     spawn: false
                 }
-            },
-            css: {
-                files: ['public/sass/**'],
-                tasks: ['sass:dist'],
-                options: {
-                    spawn: false
-                }
-            }
-        },
-        sass: {
-            dist: {
-                options: {
-                    sourcemap: false
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'public/sass',
-                    src: ['*.scss'],
-                    dest: 'public/dist/css',
-                    ext: '.css'
-                }]
             }
         }
     });
 
     grunt.registerTask('dev', function () {
         grunt.task.run('jshint:all');
-        grunt.task.run('sass:dist');
         grunt.task.run('concurrent:dev');
     });
 

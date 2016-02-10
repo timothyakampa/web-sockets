@@ -16,3 +16,8 @@ Setting up the code base
 Starting the server
 -------------------
 1. Run  'grunt dev`
+
+
+Starting the client in bash
+---------------------------
+1. Run  './client/websocket-client.sh`

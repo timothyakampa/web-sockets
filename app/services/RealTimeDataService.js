@@ -1,15 +1,34 @@
 module.exports = function (server) {
-    var io = require('socket.io')(server);
+    var url = require('url'),
+  		WebSocketServer = require('ws').Server,
+  		wss = new WebSocketServer({ server: server });
 
-    io.on('connection', function (socket) {
+  	var websockets = [];
 
-        socket.on('message', function (message) {
-            socket.to('clients').emit("message", message);
-        });
+	wss.on('connection', function (ws) {
+		var location = url.parse(ws.upgradeReq.url, true);
 
-        socket.on('register:client', function () {
-            socket.join('clients');
-        });
+		ws.on('message', function (message) {
+			console.log('received: %s', message);
 
-    });
+			if (message === "register:client") {
+				return registerClient(ws);
+			}
+
+			websockets.forEach(function (ws, index) {
+				try {
+    				ws.send("Clients Avaliable: " + (websockets.length));
+				} 
+				catch(err) {
+					console.log("some-client-left");
+					websockets.splice(index, 1);
+				}
+			});
+		});
+	});
+
+	function registerClient(ws) {
+		console.log('new-client-registered:');
+		websockets.push(ws);
+	}
 };
