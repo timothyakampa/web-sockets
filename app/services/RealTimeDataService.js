@@ -17,7 +17,7 @@ module.exports = function (server) {
 
 			websockets.forEach(function (ws, index) {
 				try {
-    				ws.send("Clients Avaliable: " + (websockets.length));
+    				ws.send(message);
 				} 
 				catch(err) {
 					console.log("some-client-left");
